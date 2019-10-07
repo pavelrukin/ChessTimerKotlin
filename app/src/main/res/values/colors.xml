@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBackground">#2d5b54</color>
+    <color name="colorCounterCalm">#40826d</color>
+    <color name="colorCounterAction">#dffffa</color>
+    <color name="colorButtons">#befff5</color>
+
+
+
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+</resources>
