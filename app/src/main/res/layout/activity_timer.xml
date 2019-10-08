@@ -8,90 +8,98 @@
     tools:context=".TimerActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:src="@drawable/ic_settings_white_24dp"
-
-        app:backgroundTint="@color/colorButtons"
-        android:layout_marginLeft="@dimen/spacing_huge_32"
-        app:layout_constraintBottom_toBottomOf="@id/view_fab_container"
-        app:layout_constraintStart_toStartOf="@+id/view_fab_container"
-        app:layout_constraintTop_toTopOf="@id/view_fab_container" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_pause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_pause_circle_outline_white_24dp"
-        app:backgroundTint="@color/colorButtons"
-        app:layout_constraintBottom_toBottomOf="@id/view_fab_container"
-        app:layout_constraintEnd_toStartOf="@+id/fab_refresh"
-        app:layout_constraintStart_toEndOf="@+id/fab_settings"
-        app:layout_constraintTop_toTopOf="@id/view_fab_container" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:src="@drawable/ic_refresh_white_24dp"
-android:layout_marginRight="@dimen/spacing_huge_32"
         app:backgroundTint="@color/colorButtons"
-        app:layout_constraintBottom_toBottomOf="@id/view_fab_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/view_fab_container" />
 
-    <View
-        android:id="@+id/view_fab_container"
-        android:layout_width="400dp"
-        android:layout_height="100dp"
-        android:layout_marginLeft="@dimen/spacing_normal_16"
-        android:layout_marginRight="@dimen/spacing_normal_16"
-        app:layout_constraintBottom_toTopOf="@+id/tv_counter_player_second"
+        app:layout_constraintBottom_toBottomOf="@+id/fab_settings"
         app:layout_constraintEnd_toEndOf="parent"
 
+        app:layout_constraintStart_toEndOf="@+id/fab_settings"
+        app:layout_constraintTop_toTopOf="@+id/fab_settings" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        android:src="@drawable/ic_pause_circle_outline_white_24dp"
+
+        app:backgroundTint="@color/colorButtons"
+        app:layout_constraintBottom_toBottomOf="@+id/fab_settings"
+        app:layout_constraintEnd_toStartOf="@+id/fab_settings"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_counter_player_first"
-         />
+        app:layout_constraintTop_toTopOf="@+id/fab_settings" />
 
-    <TextView
-        android:id="@+id/tv_counter_player_first"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="@dimen/spacing_normal_16"
-        android:layout_marginTop="@dimen/spacing_huge_32"
-        android:layout_marginRight="@dimen/spacing_normal_16"
-        android:layout_marginBottom="@dimen/spacing_huge_32"
-        android:background="@color/colorCounterCalm"
-        android:rotation="180"
-        android:text="10:00"
-        android:textAlignment="center"
-        android:textSize="@dimen/font_large_72"
-        app:layout_constraintDimensionRatio="H,2:1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="10:00" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
-    <TextView
-        android:id="@+id/tv_counter_player_second"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="@dimen/spacing_normal_16"
-        android:layout_marginTop="@dimen/spacing_huge_32"
-        android:layout_marginRight="@dimen/spacing_normal_16"
-        android:layout_marginBottom="@dimen/spacing_huge_32"
-        android:background="@color/colorCounterCalm"
-        android:text="10:00"
-        android:textAlignment="center"
-        android:textSize="@dimen/font_large_72"
+
+        android:src="@drawable/ic_settings_white_24dp"
+        app:backgroundTint="@color/colorButtons"
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="H,2:1"
+        app:layout_constraintEnd_toStartOf="@+id/fab_refresh"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/fab_pause"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_first_player"
+      android:layout_marginBottom="@dimen/spacing_tiny_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/fab_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="10:00" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_counter_player_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:rotation="180"
+            android:textAlignment="center"
+            android:textSize="@dimen/font_large_72"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10:00" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_second_player"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_tiny_4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fab_settings">
+
+        <TextView
+            android:id="@+id/tv_counter_player_second"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:textSize="@dimen/font_large_72"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="10:00" />
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
