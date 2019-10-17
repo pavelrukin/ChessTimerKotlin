@@ -1,5 +1,6 @@
 package com.pavelrukin.chesstimer.ui.timer
 
+import android.graphics.Color
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.StateStrategyType
@@ -14,4 +15,6 @@ interface TimerView :MvpView {
     fun setFinishFirst(time: String)
 
     fun setFinishSecond(time: String)
+
+
 }
