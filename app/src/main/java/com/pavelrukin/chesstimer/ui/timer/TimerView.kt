@@ -16,5 +16,7 @@ interface TimerView :MvpView {
 
     fun setFinishSecond(time: String)
 
+    fun setSettings(time: String)
+
 
 }

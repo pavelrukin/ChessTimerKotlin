@@ -16,9 +16,15 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".ui.timer.TimerActivity">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.timer.TimerActivity"/>
         </activity>
     </application>
 

@@ -1,13 +1,20 @@
 package com.pavelrukin.chesstimer.ui.timer
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import com.pavelrukin.chesstimer.R
+import com.pavelrukin.chesstimer.ui.settings.SettingsActivity
 import kotlinx.android.synthetic.main.activity_timer.*
 import moxy.MvpAppCompatActivity
 import moxy.presenter.InjectPresenter
 
 class TimerActivity : MvpAppCompatActivity(), TimerView {
+    override fun setSettings(time: String) {
+        tv_counter_player_first.text = time
+        tv_counter_player_second.text = time
+    }
+
     override fun setTimerFirst(time: String) {
         tv_counter_player_first.text = time
         cv_first_player.setCardBackgroundColor(Color.GREEN)
@@ -40,14 +47,27 @@ class TimerActivity : MvpAppCompatActivity(), TimerView {
         setContentView(R.layout.activity_timer)
 
 
-        //TODO create FragmentSettings
+        fab_refresh.setOnClickListener { p0 ->
+            timerPresenter.stopFirstTimer()
+            timerPresenter.stopSecondTimer()
+            timerPresenter.setSettings(p0!!.context)
 
+            cv_first_player.setCardBackgroundColor(Color.WHITE)
+            cv_second_player.setCardBackgroundColor(Color.WHITE)
+
+            cv_first_player.isEnabled = true
+            cv_second_player.isEnabled = true
+        }
+
+        fab_settings.setOnClickListener {
+            startActivity(Intent(applicationContext, SettingsActivity::class.java))
+        }
 
         fab_pause.setOnClickListener {
             timerPresenter.stopFirstTimer()
             timerPresenter.stopSecondTimer()
         }
-//Хуево WORKING VERSION
+
         cv_first_player.setOnClickListener {
             timerPresenter.startSecondTimer()
             timerPresenter.stopFirstTimer()
@@ -87,8 +107,6 @@ class TimerActivity : MvpAppCompatActivity(), TimerView {
     }
 }
 
-fun initView() {
 
-}
 
 

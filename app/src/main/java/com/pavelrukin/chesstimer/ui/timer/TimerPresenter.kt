@@ -1,5 +1,6 @@
 package com.pavelrukin.chesstimer.ui.timer
 
+import android.content.Context
 import android.os.CountDownTimer
 
 import com.pavelrukin.chesstimer.App
@@ -17,19 +18,25 @@ class TimerPresenter : MvpPresenter<TimerView>() {
     private var timerFirst: CountDownTimer? = null
     private var timerSecond: CountDownTimer? = null
 
-    var seconds1: Long = DEFAULT_TIME
-    var seconds2: Long = DEFAULT_TIME
-init {
-    App.appComponent.inject(this)
+    var timeForFirst: Long = DEFAULT_TIME
+    var timeForSecond: Long = DEFAULT_TIME
+
+    init {
+        App.appComponent.inject(this)
 }
 
+    fun setSettings(context: Context) {
+        val time = timerModel.getTimePreference(context)
+        timeForFirst = time
+        timeForSecond = time
+        viewState.setSettings(timerModel.timeFormat(time))
+    }
+
     fun startFirstTimer(interval: Long = 1 * 1000) {
-        timerFirst = object : CountDownTimer(seconds1 * 1000, interval) {
+        timerFirst = object : CountDownTimer(timeForFirst * 1000, interval) {
             override fun onTick(count: Long) {
-                seconds1 = count / 1000
-
-                viewState.setTimerFirst(timerModel.timeFormat(seconds1))
-
+                timeForFirst = count / 1000
+                viewState.setTimerFirst(timerModel.timeFormat(timeForFirst))
             }
 
             override fun onFinish() {
@@ -45,12 +52,10 @@ init {
     }
 
     fun startSecondTimer(interval: Long = 1 * 1000) {
-        timerSecond = object : CountDownTimer(seconds2 * 1000, interval) {
-
+        timerSecond = object : CountDownTimer(timeForSecond * 1000, interval) {
             override fun onTick(count: Long) {
-
-                seconds2 = count / 1000
-                viewState.setTimerSecond(timerModel.timeFormat(seconds2))
+                timeForSecond = count / 1000
+                viewState.setTimerSecond(timerModel.timeFormat(timeForSecond))
             }
 
             override fun onFinish() {

@@ -15,7 +15,7 @@ class TimerModel{
     }
     fun getTimePreference(context: Context): Long {
         val prefs = PreferenceManager.getDefaultSharedPreferences(context)
-        return prefs.getInt(context.getString(R.string.key_timer_length_seconds), Constants.DEFAULT_TIME.toInt() / 60).toLong() * 60
+        return prefs.getInt(context.getString(R.string.key_timer_length), Constants.DEFAULT_TIME.toInt() / 60).toLong() * 60
     }
 
 }
