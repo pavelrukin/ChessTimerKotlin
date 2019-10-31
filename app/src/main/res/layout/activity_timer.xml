@@ -12,8 +12,11 @@
         android:id="@+id/fab_refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:src="@drawable/ic_refresh_white_24dp"
         app:backgroundTint="@color/colorButtons"
+
+
         app:layout_constraintBottom_toBottomOf="@+id/fab_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fab_settings"
@@ -23,8 +26,10 @@
         android:id="@+id/fab_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:src="@drawable/ic_pause_circle_outline_white_24dp"
         app:backgroundTint="@color/colorButtons"
+
         app:layout_constraintBottom_toBottomOf="@+id/fab_settings"
         app:layout_constraintEnd_toStartOf="@+id/fab_settings"
         app:layout_constraintHorizontal_bias="0.5"

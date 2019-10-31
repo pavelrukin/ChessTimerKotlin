@@ -27,7 +27,7 @@
         android:max="100"
         android:theme="@style/Widget.AppCompat.SeekBar.Discrete" />
 -->
-
+<!--
     <SeekBar
         android:id="@+id/seekbar"
         android:layout_width="0dp"
@@ -50,5 +50,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/seekbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/seekbar"
-        app:layout_constraintTop_toTopOf="@+id/seekbar" />
+        app:layout_constraintTop_toTopOf="@+id/seekbar" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

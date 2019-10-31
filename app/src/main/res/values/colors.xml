@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorBackground">#2d5b54</color>
-    <color name="colorCounterCalm">#40826d</color>
-    <color name="colorCounterAction">#dffffa</color>
-    <color name="colorButtons">#befff5</color>
+    <color name="colorBackground">#6D4C41</color>
+    <color name="colorButtons">#FFA000</color>
+    <color name="colorAction">#FCBF08</color>
+    <color name="colorActionPause">#FFFFFF</color>
+    <color name="pr5">#FDDB74</color>
 
 
-
-
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#6D4C41</color>
+    <color name="colorPrimaryDark">#6D4C41</color>
     <color name="colorAccent">#D81B60</color>
 </resources>

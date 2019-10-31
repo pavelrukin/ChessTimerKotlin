@@ -13,14 +13,21 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Timber.d("onCreate() called")
         setContentView(R.layout.activity_settings)
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment, SettingsActivityFragment())
-            .commit()
+        setupFragment()
         setupToolbar()
-
     }
 
-    private fun setupToolbar() {
+    fun setupFragment() {
+        val settingsFragment: android.app.Fragment? =
+            fragmentManager.findFragmentById(R.id.fragment)
+        if (settingsFragment != null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment, SettingsActivityFragment())
+                .commit()
+        }
+    }
+    fun setupToolbar() {
+
         setSupportActionBar(toolbar as Toolbar?)
         supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
@@ -30,3 +37,4 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 }
+

@@ -19,32 +19,31 @@ class TimerActivity : MvpAppCompatActivity(), TimerView,
     }
 
     override fun setSettings(time: String) {
-
         tv_counter_player_first.text = time
         tv_counter_player_second.text = time
     }
 
     override fun setTimerFirst(time: String) {
         tv_counter_player_first.text = time
-        cv_first_player.setCardBackgroundColor(Color.GREEN)
-        cv_second_player.setCardBackgroundColor(Color.WHITE)
+        cv_first_player.setCardBackgroundColor(resources.getColor(R.color.colorAction))
+        cv_second_player.setCardBackgroundColor(resources.getColor(R.color.colorActionPause))
     }
 
     override fun setTimerSecond(time: String) {
         tv_counter_player_second.text = time
-        cv_second_player.setCardBackgroundColor(Color.GREEN)
-        cv_first_player.setCardBackgroundColor(Color.WHITE)
+        cv_second_player.setCardBackgroundColor(resources.getColor(R.color.colorAction))
+        cv_first_player.setCardBackgroundColor(resources.getColor(R.color.colorActionPause))
     }
 
     override fun setFinishFirst(time: String) {
         tv_counter_player_first.text = time
-        cv_first_player.setCardBackgroundColor(Color.BLUE)
+        cv_first_player.setCardBackgroundColor(resources.getColor(R.color.colorAccent))
         cv_first_player.isEnabled = false
     }
 
     override fun setFinishSecond(time: String) {
         tv_counter_player_second.text = time
-        cv_second_player.setCardBackgroundColor(Color.BLUE)
+        cv_second_player.setCardBackgroundColor(resources.getColor(R.color.colorAccent))
         cv_second_player.isEnabled = false
     }
 
@@ -77,8 +76,8 @@ class TimerActivity : MvpAppCompatActivity(), TimerView,
             timerPresenter.stopSecondTimer()
             timerPresenter.setSettings(p0!!.context)
 
-            cv_first_player.setCardBackgroundColor(Color.WHITE)
-            cv_second_player.setCardBackgroundColor(Color.WHITE)
+            cv_first_player.setCardBackgroundColor(resources.getColor(R.color.colorActionPause))
+            cv_second_player.setCardBackgroundColor(resources.getColor(R.color.colorActionPause))
             cv_first_player.isEnabled = true
             cv_second_player.isEnabled = true
         }
