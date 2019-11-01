@@ -23,11 +23,17 @@ class TimerPresenter : MvpPresenter<ITimerView>() {
     var timeForSecond: Long = DEFAULT_TIME
 
     var vibration: Boolean = true
+    var sound: Boolean = true
 
     init {
         App.appComponent.inject(this)
     }
+fun setSoundCall(){
+    if (sound){
+        viewState.setSound()
+    }
 
+}
     fun setVibrateCall() {
         if (vibration) {
             viewState.setVibration()
@@ -35,19 +41,23 @@ class TimerPresenter : MvpPresenter<ITimerView>() {
     }
 
     fun setSettings(context: Context) {
-        val soundClick = timerModel.getSoundClickPreference(context)
+        val sound = timerModel.getSoundClickPreference(context)
         val vibration = timerModel.getVibrationPreference(context)
         val time = timerModel.getTimePreference(context)
         timeForFirst = time
         timeForSecond = time
 
         this.vibration = vibration
+        this.sound=sound
 
-        viewState.setSettings(timerModel.timeFormat(time), vibration, soundClick)
+        viewState.setSettings(timerModel.timeFormat(time), vibration, sound)
     }
 
     fun changeSettings(context: Context, preferences: SharedPreferences, key: String) {
         when (key) {
+            context.getString(R.string.key_sound_click) ->{
+                context.getString(R.string.key_sound_click)
+            }
             context.getString(R.string.key_vibration) -> {
                 vibration = preferences.getBoolean(key, true)
             }
@@ -56,7 +66,7 @@ class TimerPresenter : MvpPresenter<ITimerView>() {
                 timeForSecond = preferences.getInt(key, DEFAULT_TIME.toInt() / 60).toLong() * 60
             }
         }
-        viewState.setSettings(timerModel.timeFormat(timeForFirst), vibration, soundClick = true)
+        viewState.setSettings(timerModel.timeFormat(timeForFirst), vibration, sound)
     }
 
     fun startFirstTimer(interval: Long = 1 * 1000) {

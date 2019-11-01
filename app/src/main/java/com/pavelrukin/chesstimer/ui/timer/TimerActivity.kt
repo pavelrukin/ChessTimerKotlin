@@ -3,6 +3,7 @@ package com.pavelrukin.chesstimer.ui.timer
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.media.MediaPlayer
 import android.os.Build
 import android.os.Bundle
 import android.os.VibrationEffect
@@ -44,7 +45,8 @@ class TimerActivity : MvpAppCompatActivity(), ITimerView,
 
 
     override fun setSound() {
-        //TODO()getting mp3 from raw
+        val playMP = MediaPlayer.create(this,R.raw.click_sound)
+        playMP.start()
     }
 
 
@@ -96,7 +98,7 @@ class TimerActivity : MvpAppCompatActivity(), ITimerView,
 
     private fun setupViews() {
         cv_first_player.setOnClickListener {
-
+timerPresenter.setSoundCall()
             timerPresenter.setVibrateCall()
             timerPresenter.startSecondTimer()
             timerPresenter.stopFirstTimer()
@@ -104,6 +106,7 @@ class TimerActivity : MvpAppCompatActivity(), ITimerView,
             cv_second_player.isEnabled = true
         }
         cv_second_player.setOnClickListener {
+            timerPresenter.setSoundCall()
 timerPresenter.setVibrateCall()
             timerPresenter.startFirstTimer()
             timerPresenter.stopSecondTimer()
