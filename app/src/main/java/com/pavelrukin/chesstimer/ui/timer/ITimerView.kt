@@ -1,12 +1,11 @@
 package com.pavelrukin.chesstimer.ui.timer
 
-import android.graphics.Color
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface TimerView :MvpView {
+interface ITimerView :MvpView {
 
     fun setTimerFirst(time: String)
 
@@ -16,7 +15,11 @@ interface TimerView :MvpView {
 
     fun setFinishSecond(time: String)
 
-    fun setSettings(time: String)
+    fun setSettings(time: String, vibration: Boolean, soundClick: Boolean)
+
+    fun setVibration()
+
+    fun setSound()
 
 
 }

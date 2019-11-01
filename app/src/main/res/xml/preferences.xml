@@ -13,5 +13,9 @@
         asp:min="@integer/seek_bar_min"
         android:max="@integer/seek_bar_max"
         />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="@string/key_vibration"
+        android:title="@string/settings_vibration" />
 
 </PreferenceScreen>

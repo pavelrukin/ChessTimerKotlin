@@ -17,7 +17,7 @@ class SettingsActivity : AppCompatActivity() {
         setupToolbar()
     }
 
-    fun setupFragment() {
+    private fun setupFragment() {
         val settingsFragment: android.app.Fragment? =
             fragmentManager.findFragmentById(R.id.fragment)
         if (settingsFragment != null) {
@@ -26,8 +26,7 @@ class SettingsActivity : AppCompatActivity() {
                 .commit()
         }
     }
-    fun setupToolbar() {
-
+    private fun setupToolbar() {
         setSupportActionBar(toolbar as Toolbar?)
         supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)

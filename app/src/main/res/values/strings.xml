@@ -4,13 +4,19 @@
     <string name="title_activity_settings">SettingsActivity</string>
 
 
-    <string name="key_timer_length">key_timer_length</string>
+
 
     <string name="choose_time_in_minutes">Choose time in minutes</string>
     <string name="timer">Timer</string>
 
+    <!--Sting keys-->
+    <string name="key_timer_length">key_timer_length</string>
 
+    <string name="settings_vibration">Vibration</string>
+    <string name="key_vibration">key_vibration</string>
 
+    <string name="settings_sound_click">Sound</string>
+    <string name="key_sound_click">key_music_click</string>
 
 
 </resources>
